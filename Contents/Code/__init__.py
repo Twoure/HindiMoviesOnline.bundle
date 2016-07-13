@@ -35,7 +35,6 @@ def Start():
     Log.Debug('*' * 80)
 
     HTTP.CacheTime = CACHE_1HOUR
-    #HTTP.CacheTime = 0
     HTTP.Headers['User-Agent'] = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'
 
 ####################################################################################################
@@ -99,8 +98,6 @@ def BookmarksSub(category):
         title = bookmark['title']
         thumb = bookmark['thumb']
         url = bookmark['url']
-        #category = bookmark['category']
-        #item_id = bookmark['id']
 
         oc.add(DirectoryObject(
             key=Callback(VideoPage, title=title, thumb=thumb, url=url),
