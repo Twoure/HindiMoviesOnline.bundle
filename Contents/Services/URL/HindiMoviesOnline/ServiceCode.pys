@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+
+"""HindiMoviesOnline.co Service Code"""
+
+####################################################################################################
+def MetadataObjectForURL(url):
+
+    url, hurl = split_urls(url)
+    source_title = Regex(r'https?\:\/\/(?:www\.|beta\.)?(\w+)').search(hurl).group(1).title().strip()
+    fallback = 'http://i.imgur.com/75YO83o.jpg'
+
+    try:
+        html = HTML.ElementFromURL(url)
+    except:
+        raise Ex.MediaNotAvailable
+
+    mtime = html.xpath('//meta[@property="article:modified_time"]/@content')
+    uptime = html.xpath('//meta[@property="og:updated_time"]/@content')
+
+    originally_available_at = uptime[0] if uptime else (mtime[0] if mtime else None)
+    year = int(Datetime.ParseDate(originally_available_at).year) if originally_available_at else None
+    originally_available_at = Datetime.ParseDate(originally_available_at) if originally_available_at else None
+
+    node = html.xpath('//div/img')
+    vtitle = node[0].get('alt') if node else None
+    vtitle = Regex(r'^(.+?)[Ff]ull\s[Mm]ovie(?:\s[Oo]nline)?$').sub(r'\1', vtitle.strip()) if vtitle else None
+    vthumb = node[0].get('src') if node else None
+
+    time_stamp = int(Datetime.TimestampFromDatetime(Datetime.Now()))
+    art = '/:/plugins/com.plexapp.plugins.hindimoviesonline/resources/art-default.jpg?t=%s' %str(time_stamp)
+
+    return MovieObject(
+        source_title=source_title,
+        title=vtitle if vtitle else source_title,
+        thumb=Resource.ContentsOfURLWithFallback([vthumb, fallback]),
+        art=art,
+        originally_available_at=originally_available_at,
+        year=year
+        )
+
+####################################################################################################
+@deferred
+def MediaObjectsForURL(url):
+
+    url, hurl = split_urls(url)
+    try:
+        return URLService.MediaObjectsForURL(hurl)
+    except Exception as e:
+        Log.Error(str(e))
+
+    raise Ex.MediaNotAvailable
+
+####################################################################################################
+def split_urls(url):
+    urls = url.split('&hmo_page_url=')
+    hurl = urls[0].split('hmo:')[1]
+
+    # Trick to use the UnSupportedServices URL Service for URLs within the uss_list
+    uss_list = ['vidzi', 'vodlocker', 'gorillavid', 'faststream']
+    test = ['uss/' + hurl for u in uss_list if Regex(r'(?:\.|\/)(%s)\.' %u).search(hurl)]
+    hurl = test[0] if test else hurl
+
+    return (urls[1], hurl)
