@@ -42,4 +42,4 @@ This plugin creates a new channel within [Plex Media Server](https://plex.tv/) (
 ***
 ## Issues
 
-- When video sources are down, there is no indication within the Channel untile the video is played.  When played it will return an error if the video is offline.
+- When video sources are down, there is no indication within the Channel until the video is played.  When played it will return an error if the video is offline.
