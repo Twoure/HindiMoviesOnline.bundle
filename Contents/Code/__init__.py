@@ -218,7 +218,11 @@ def VideoPage(title, thumb, url):
 
     node = html.xpath('//div/img')
     vtitle = node[0].get('alt') if node else None
+    if not vtitle:
+        vtitle = html.xpath('//h1[@class="single-entry-title"]/text()')[0] if html.xpath('//h1[@class="single-entry-title"]/text()') else None
     vtitle = Regex(r'^(.+?)[Ff]ull\s[Mm]ovie(?:\s[Oo]nline)?$').sub(r'\1', vtitle.strip()) if vtitle else None
+    if not vtitle:
+        vtitle = 'Title NA'
 
     thumb = thumb if thumb else ''
     vthumb = node[0].get('src') if node else thumb
