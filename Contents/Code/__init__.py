@@ -278,6 +278,6 @@ def is_uss_installed():
     for plugin_el in plugins_list.xpath('//Plugin'):
         identifiers.append(plugin_el.get('identifier'))
 
-        if 'com.plexapp.system.unsupportedservices' in identifiers:
-            return True
-        return False
+    if 'com.plexapp.system.unsupportedservices' in identifiers:
+        return True
+    return False
