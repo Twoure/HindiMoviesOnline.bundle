@@ -190,6 +190,9 @@ def VideoPage(title, thumb, url):
     except:
         return MC.message_container('Error', 'Cannot access %s' %url)
 
+    if not is_uss_installed():
+        return MC.message_container('Error', 'UnSupportedServices.bundle Required')
+
     source_list = html.xpath('//p/iframe/@src')
     if len(source_list) == 0:
         return MC.message_container('Warning', 'No Source Video(s)')
@@ -264,3 +267,17 @@ def Search(query=''):
     href = BASE_URL + '/?s=%s' %String.Quote(query, usePlus=True)
 
     return DirectoryList(title, href)
+
+####################################################################################################
+def is_uss_installed():
+    """Check install state of UnSupported Services"""
+
+    identifiers = list()
+    plugins_list = XML.ElementFromURL('http://127.0.0.1:32400/:/plugins', cacheTime=0)
+
+    for plugin_el in plugins_list.xpath('//Plugin'):
+        identifiers.append(plugin_el.get('identifier'))
+
+        if 'com.plexapp.system.unsupportedservices' in identifiers:
+            return True
+        return False
