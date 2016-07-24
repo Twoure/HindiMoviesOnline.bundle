@@ -193,7 +193,7 @@ def VideoPage(title, thumb, url):
     if not is_uss_installed():
         return MC.message_container('Error', 'UnSupportedServices.bundle Required')
 
-    source_list = html.xpath('//p/iframe/@src')
+    source_list = html.xpath('//iframe/@src')
     if len(source_list) == 0:
         return MC.message_container('Warning', 'No Source Video(s)')
 
