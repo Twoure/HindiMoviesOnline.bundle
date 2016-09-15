@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""HindiMoviesOnline.co Service Code"""
+"""HindiMoviesOnline.(co|cc) Service Code"""
 
 ####################################################################################################
 def MetadataObjectForURL(url):

@@ -1,9 +1,9 @@
 Hindi Movies Online
 ===================
 
-This plugin creates a new channel within [Plex Media Server](https://plex.tv/) (PMS) to view content from [HindiMoviesOnline.co](http://hindimoviesonline.co).
+This plugin creates a new channel within [Plex Media Server](https://plex.tv/) (PMS) to view content from [HindiMoviesOnline.cc](http://hindimoviesonline.cc).
 
-> **Note** the author of this plugin has no affiliation with [HindiMoviesOnline.co](http://HindiMoviesOnline.co) nor the owners of the content that they host.
+> **Note** the author of this plugin has no affiliation with [HindiMoviesOnline.cc](http://HindiMoviesOnline.cc) nor the owners of the content that they host.
 
 ***
 ## Requirements
@@ -25,7 +25,7 @@ This plugin creates a new channel within [Plex Media Server](https://plex.tv/) (
 
 #### Manual
 
-- [Download](https://github.com/Twoure/HindiMoviesOnline.bundle/releases) latest release and install it by following the Plex [instructions](https://support.plex.tv/hc/en-us/articles/201187656-How-do-I-manually-install-a-channel-) or the instructions below.
+- [Download](https://github.com/Twoure/HindiMoviesOnline.bundle/archive/master.zip) and install it by following the Plex [instructions](https://support.plex.tv/hc/en-us/articles/201187656-How-do-I-manually-install-a-channel-) or the instructions below.
   - Unzip and rename the folder to **HindiMoviesOnline.bundle**
   - Copy **HindiMoviesOnline.bundle** into the PMS [Plug-ins](https://support.plex.tv/hc/en-us/articles/201106098-How-do-I-find-the-Plug-Ins-folder-) directory
   - Restart PMS
