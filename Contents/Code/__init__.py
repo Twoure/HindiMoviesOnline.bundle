@@ -4,7 +4,7 @@ from DumbTools import DumbKeyboard
 
 TITLE = 'Hindi Movies Online'
 PREFIX = '/video/hindimoviesonline'
-BASE_URL = 'http://hindimoviesonline.cc'
+BASE_URL = 'http://hindimoviesonlines.com'
 
 ICON = 'icon-default.png'
 ART = 'art-default.jpg'

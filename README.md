@@ -1,9 +1,9 @@
 Hindi Movies Online
 ===================
 
-This plugin creates a new channel within [Plex Media Server](https://plex.tv/) (PMS) to view content from [HindiMoviesOnline.cc](http://hindimoviesonline.cc).
+This plugin creates a new channel within [Plex Media Server](https://plex.tv/) (PMS) to view content from [HindiMoviesOnlines.com](http://hindimoviesonlines.com).
 
-> **Note** the author of this plugin has no affiliation with [HindiMoviesOnline.cc](http://HindiMoviesOnline.cc) nor the owners of the content that they host.
+> **Note** the author of this plugin has no affiliation with [HindiMoviesOnlines.com](http://HindiMoviesOnlines.com) nor the owners of the content that they host.
 
 ***
 ## Requirements
