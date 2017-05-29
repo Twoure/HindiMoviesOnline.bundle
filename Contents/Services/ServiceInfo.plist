@@ -8,7 +8,7 @@
       <dict>
         <key>URLPatterns</key>
         <array>
-          <string>^hmo\:.+?hmo_page_url\=https?\:\/\/(?:www\.)?hindimoviesonlines\.\w+\/.+$</string>
+          <string>^hmo\:.+?hmo_page_url\=https?\:\/\/(?:www\.)?hindimoviesonlines?\.\w+\/.+$</string>
         </array>
       </dict>
     </dict>
